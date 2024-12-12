@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Request Money</title>
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo">
+        <h2>Request Money</h2>
+        <form method="POST">
+            <label for="sender">Sender Email or Phone:</label>
+            <input type="text" name="sender" id="sender" placeholder="e.g., email@example.com" required>
+            <label for="amount">Amount:</label>
+            <input type="number" name="amount" id="amount" placeholder="Enter Amount" required>
+            <button type="submit">Request Money</button>
+        </form>
+        <a href="{{ url_for('dashboard') }}" class="back-to-dashboard">Go to Dashboard</a>
+    </div>
+</body>
+</html>

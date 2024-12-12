@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Your Transaction Statements</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Your Transaction Statements</h2>
+        <form method="POST">
+            <label for="start_date">Start Date:</label>
+            <input type="date" id="start_date" name="start_date" required>
+            <label for="end_date">End Date:</label>
+            <input type="date" id="end_date" name="end_date" required>
+            <button type="submit">Filter</button>
+        </form>
+        <p><strong>Total Sent:</strong> {{ total_sent }}</p>
+        <p><strong>Total Received:</strong> {{ total_received }}</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Sender</th>
+                    <th>Receiver</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction['id'] }}</td>
+                    <td>{{ transaction['sender_id'] }}</td>
+                    <td>{{ transaction['receiver_id'] }}</td>
+                    <td>{{ transaction['amount'] }}</td>
+                    <td>{{ transaction['date'] }}</td>
+                    <td>{{ transaction['transaction_type'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ url_for('dashboard') }}" class="back-to-dashboard">Go to Dashboard</a>
+    </div>
+</body>
+</html>

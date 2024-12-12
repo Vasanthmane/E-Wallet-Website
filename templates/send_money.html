@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Send Money</title>
+</head>
+<body class="send-money-page">
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo">
+        <h2>Send Money</h2>
+        <form method="POST">
+            <input type="text" name="recipient" placeholder="Recipient's Email or Phone" required>
+            <input type="number" step="0.01" name="amount" placeholder="Amount to Send" required>
+            <button type="submit">Send</button>
+        </form>
+        {% if success %}
+        <div class="success-message">
+            <img src="{{ url_for('static', filename='images/success.png') }}" alt="Success">
+            <p>Money sent successfully!</p>
+        </div>
+        {% endif %}
+        <!-- Add the Go to Dashboard button -->
+        <div class="menu">
+            <a href="{{ url_for('dashboard') }}" class="back-to-dashboard">Go to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

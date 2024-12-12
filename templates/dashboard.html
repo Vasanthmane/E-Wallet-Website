@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo">
+        <h2>DASHBOARD</h2>
+        <div class="menu">
+            <a href="{{ url_for('account_info') }}">Account Info</a>
+            <a href="{{ url_for('send_money') }}">Send Money</a>
+            <a href="{{ url_for('request_money') }}">Request Money</a>
+            <a href="{{ url_for('statements') }}">Statements</a>
+            <a href="{{ url_for('transaction_statistics') }}">Transaction Statistics</a>
+            <a href="{{ url_for('search_transactions') }}">Search Transactions</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </div>
+</body>
+</html>

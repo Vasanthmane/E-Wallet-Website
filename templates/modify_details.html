@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Modify Personal Details</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Modify Personal Details</h2>
+        <form method="POST" action="{{ url_for('modify_details') }}">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" value="{{ user['name'] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" value="{{ user['email'] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" value="{{ user['phone'] }}" required>
+            </div>
+            <button type="submit">Save</button>
+        </form>
+        <a href="{{ url_for('dashboard') }}" class="back-to-dashboard">Go to Dashboard</a>
+    </div>
+</body>
+</html>

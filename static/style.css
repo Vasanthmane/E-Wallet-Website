@@ -1,0 +1,252 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #eef2f3, #d3e0ea);
+    color: #22476f;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Headings */
+h2 {
+    color: #444;
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Buttons */
+button, .menu a {
+    background-color: #245548;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 25px;
+    margin: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover, .menu a:hover {
+    background-color: #5548c8;
+    transform: scale(1.05);
+}
+
+/* Menu Links */
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menu a {
+    display: inline-block;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+input, select {
+    padding: 12px;
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input:focus, select:focus {
+    border-color: #6c63ff;
+}
+
+/* Box Shadows */
+input, button, .menu a {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+input:hover {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Success Tick Styling */
+.success-message {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.success-message img {
+    width: 80px;
+    height: 80px;
+    margin-top: 10px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+    }
+
+    button, .menu a {
+        width: 100%;
+    }
+}
+
+.back-to-dashboard {
+    background-color: #4caf50; /* Green */
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-to-dashboard:hover {
+    background-color: #388e3c;
+    transform: scale(1.05);
+}
+
+/* Logo Styling */
+.logo {
+    width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto; /* Center the logo and add spacing */
+}
+
+/* Large Logo for Login Page */
+.large-logo {
+    width: 350px;
+    max-width: 90%;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    opacity: 0.9; /* Slight transparency for better aesthetics */
+}
+
+/* Background Logo for All Pages */
+body::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url('{{ url_for("static", filename="images/background.png") }}') no-repeat center center;
+    background-size: cover;
+    opacity: 0.07; /* Subtle transparency for background */
+    width: 80%;
+    height: 80%;
+    z-index: -1;
+}
+
+/* Logo Container Styling */
+.logo-container {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.large-logo {
+    width: 220px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.tagline {
+    font-size: 18px;
+    color: #666;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Form Group Styling */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    max-width: 450px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.form-group input:focus {
+    border-color: #6c63ff;
+}
+
+/* Button Spacing */
+form button {
+    margin-top: 20px;
+}
+
+/* Adjust Alignment for "Go to Dashboard" */
+.back-to-dashboard {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #6c63ff;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #9f3d3d;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Account Information</title>
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo">
+        <h2>Account Information</h2>
+        <div class="account-details">
+            <p><strong>Name:</strong> {{ user['name'] }}</p>
+            <p><strong>Email:</strong> {{ user['email'] }}</p>
+            <p><strong>Phone:</strong> {{ user['phone'] }}</p>
+            <p><strong>SSN:</strong> {{ user['ssn'] }}</p>
+        </div>
+
+        <h3>Bank Account Details</h3>
+        {% if bank_account %}
+        <div class="bank-details">
+            <p><strong>Account Number:</strong> {{ bank_account['account_number'] }}</p>
+            <p><strong>Routing Number:</strong> {{ bank_account['routing_number'] }}</p>
+            <p><strong>Associated Phone:</strong> {{ bank_account['phone'] }}</p>
+        </div>
+        {% else %}
+        <p>No bank account details available.</p>
+        {% endif %}
+
+        <div class="action-buttons">
+            <a href="{{ url_for('modify_details') }}" class="button">Modify Personal Details</a>
+            <a href="{{ url_for('modify_bank_account') }}" class="button">Modify Bank Account</a>
+            <a href="{{ url_for('dashboard') }}" class="back-to-dashboard">Go to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

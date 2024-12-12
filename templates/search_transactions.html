@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Search Transactions</title>
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo">
+        <h2>SEARCH TRANSACTIONS</h2>
+        <form method="POST">
+            <label for="search">Search:</label>
+            <input type="text" id="search" name="search" placeholder="Enter Email, Phone, SSN, etc." required>
+            <button class="primary-button" type="submit">Search</button>
+        </form>
+
+        <div class="results">
+            <h3>Results:</h3>
+            {% if transactions %}
+                {% for transaction in transactions %}
+                <div class="transaction-card">
+                    <p><strong>Transaction ID:</strong> {{ transaction['id'] }}</p>
+                    <p><strong>Amount:</strong> ${{ transaction['amount'] }}</p>
+                    <p><strong>Date:</strong> {{ transaction['date'] }}</p>
+                    <p><strong>Type:</strong> {{ transaction['transaction_type'] }}</p>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>No transactions found.</p>
+            {% endif %}
+        </div>
+
+        <div class="menu">
+            <a href="{{ url_for('dashboard') }}" class="back-to-dashboard">Go to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

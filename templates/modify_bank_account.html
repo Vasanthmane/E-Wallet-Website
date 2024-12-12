@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Modify Bank Account</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Modify Bank Account</h2>
+        <form method="POST" action="{{ url_for('modify_bank_account') }}">
+            <div class="form-group">
+                <label for="account_number">Account Number:</label>
+                <input type="text" id="account_number" name="account_number" value="{{ bank_account['account_number'] if bank_account else '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="routing_number">Routing Number:</label>
+                <input type="text" id="routing_number" name="routing_number" value="{{ bank_account['routing_number'] if bank_account else '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" value="{{ bank_account['phone'] if bank_account else '' }}" required>
+            </div>
+            <button type="submit">Save</button>
+        </form>
+        <a href="{{ url_for('dashboard') }}" class="back-to-dashboard">Go to Dashboard</a>
+    </div>
+</body>
+</html>

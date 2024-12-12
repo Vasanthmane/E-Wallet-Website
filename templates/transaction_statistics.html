@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Transaction Statistics</title>
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo">
+        <h2>Transaction Statistics</h2>
+        
+        <p><strong>Total Sent:</strong> {{ total_sent }}</p>
+        <p><strong>Total Received:</strong> {{ total_received }}</p>
+
+        <h3>Monthly Totals:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Total Sent</th>
+                    <th>Total Received</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stat in monthly_stats %}
+                <tr>
+                    <td>{{ stat.month }}</td>
+                    <td>{{ stat.total_sent }}</td>
+                    <td>{{ stat.total_received }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h3>Largest Transaction:</h3>
+        {% if largest_transaction %}
+        <p><strong>Amount:</strong> {{ largest_transaction.amount }}</p>
+        <p><strong>Type:</strong> {{ largest_transaction.transaction_type }}</p>
+        {% else %}
+        <p>No transactions available.</p>
+        {% endif %}
+
+        <a href="{{ url_for('dashboard') }}" class="back-to-dashboard">Go to Dashboard</a>
+    </div>
+</body>
+</html>
