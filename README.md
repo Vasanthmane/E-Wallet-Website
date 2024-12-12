@@ -20,7 +20,7 @@ A digital wallet system designed to simulate functionalities similar to Venmo or
 
 # Clone the repository:
 
-git clone https://github.com/yourusername/WalletProject.git
+git clone https://github.com/Vasanthmane/E-Wallet-Website.git
 
 # Install necessary dependencies:
 
